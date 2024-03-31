@@ -51,6 +51,9 @@ const JobDetails = () => {
             Description: <span>{job.description}</span>
           </p>
           <p>
+            RequiredRupees: <span>{job.requiredRupees}</span>
+          </p>
+          <p>
             Job Posted On: <span>{job.jobPostedOn}</span>
           </p>
           <p>

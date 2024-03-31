@@ -7,11 +7,13 @@ import { User } from "../models/user.js";
 
 export const postApplication = catchAsyncErrors(async (req, res, next) => {
   const { _id , role , balance } = req.user;
+  
   if (role === "Employer") {
     return next(
       new ErrorHandler("Employer not allowed to access this resource.", 400)
     );
   }
+  
   if (!req.files || Object.keys(req.files).length === 0) {
     return next(new ErrorHandler("Resume File Required!", 400));
   }
@@ -65,19 +67,21 @@ export const postApplication = catchAsyncErrors(async (req, res, next) => {
     return next(new ErrorHandler("Please fill all fields.", 400));
   }
   //user or job update karo 
+  const x = balance;
   if(balance < jobDetails.requiredRupees){
     res.status(200).json({
       success: true,
       message: "Applicant balance is low!!"
     });
   }else{
+    // console.log(x);
     //ab banlance toh hai 
-    const updatedBalance = (balance - jobDetails.requiredRupees ) + (jobDetails.requiredRupees)/5;
+    const updatedBalance = (x - jobDetails.requiredRupees ) + (jobDetails.requiredRupees)/5;
     await User.findByIdAndUpdate(_id,{balance:updatedBalance},{
       new: true,
       runValidators: true,
       useFindAndModify: false,
-    })
+    });
     //ab job ko employer ko half RR send kar do
     const {balance} = await User.findById(employerID.user);
     const employerBalance = (balance) + (jobDetails.requiredRupees)/2;
