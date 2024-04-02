@@ -13,9 +13,12 @@ const app = new express();
 dotenv.config({path: './config/config.env'});
 
 app.use(cors({
-    origin: [process.env.FRONTEND_URL , process.env.FRONTEND_URL1 , process.env.FRONTEND_URL2 , process.env.FRONTEND_URL3 , process.env.FRONTEND_URL4],
+    origin: '*',
     // origin: "https://job-search-2eqm.onrender.com",
     methods: ['GET' , 'POST' , 'DELETE' , 'PUT'],
+    allowedHeaders: [
+        'Content-Type',
+      ],    
     credentials: true
 }));
 
