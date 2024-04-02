@@ -6,12 +6,13 @@ import cors from 'cors';
 const router = express.Router();
 
 router.use(cors({
-    origin: '*',
+    origin: true,
     // origin: "https://job-search-2eqm.onrender.com",
-    methods: ['GET' , 'POST' , 'DELETE' , 'PUT'],
-    allowedHeaders: [
-        'Content-Type',
-      ]
+    // methods: ['GET' , 'POST' , 'DELETE' , 'PUT'],
+    // allowedHeaders: [
+    //     'Content-Type',
+    //   ],    
+    credentials: true
 }));
 
 router.post("/register", register);

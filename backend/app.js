@@ -14,12 +14,13 @@ dotenv.config({path: './config/config.env'});
 console.log('app');
 
 app.use(cors({
-    origin: '*',
+    origin: true,
     // origin: "https://job-search-2eqm.onrender.com",
-    methods: ['GET' , 'POST' , 'DELETE' , 'PUT'],
-    allowedHeaders: [
-        'Content-Type',
-      ]
+    // methods: ['GET' , 'POST' , 'DELETE' , 'PUT'],
+    // allowedHeaders: [
+    //     'Content-Type',
+    //   ]
+    credentials: true
 }));
 
 app.use(cookieParser());
