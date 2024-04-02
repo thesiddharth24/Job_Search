@@ -11,8 +11,7 @@ router.use(cors({
     methods: ['GET' , 'POST' , 'DELETE' , 'PUT'],
     allowedHeaders: [
         'Content-Type',
-      ],    
-    credentials: true
+      ]
 }));
 
 router.post("/register", register);
