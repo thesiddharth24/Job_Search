@@ -15,7 +15,7 @@ const EmailVerification = () => {
     try {
       if (isAuthorized) {
         axios
-          .get("https://job-search-2eqm.onrender.com/api/v1/user/getuser", {
+          .get("/api/v1/user/getuser", {
             withCredentials: true,
           })
           .then((res) => {
@@ -37,7 +37,7 @@ const EmailVerification = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "https://job-search-2eqm.onrender.com/api/v1/user/OTP-send",
+        "/api/v1/user/OTP-send",
         {},
         {
           withCredentials: true,
@@ -56,7 +56,7 @@ const EmailVerification = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "https://job-search-2eqm.onrender.com/api/v1/user/verify-otp",
+        "/api/v1/user/verify-otp",
         { OTP },
         {
           withCredentials: true,
