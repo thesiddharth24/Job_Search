@@ -5,15 +5,6 @@ import cors from 'cors';
 
 const router = express.Router();
 
-router.use(cors({
-    origin: true,
-    // origin: "https://job-search-2eqm.onrender.com",
-    // methods: ['GET' , 'POST' , 'DELETE' , 'PUT'],
-    // allowedHeaders: [
-    //     'Content-Type',
-    //   ],    
-    credentials: true
-}));
 
 router.post("/register", register);
 router.post("/login", login);
