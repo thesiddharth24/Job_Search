@@ -36,11 +36,17 @@ const Login = () => {
       toast.error(error.response.data.message);
     }
   };
+  
+  if(!isAuthorized){
+    return <Navigate to={'/login'}/>
+  }
+
+
+
 
   if(isAuthorized){
     return <Navigate to={'/'}/>
   }
-
   return (
     <>
       <section className="authPage">
