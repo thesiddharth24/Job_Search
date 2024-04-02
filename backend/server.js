@@ -1,5 +1,6 @@
  import app from './app.js'
  import cloudinary from 'cloudinary';
+ console.log('server');
 
 // Configure Cloudinary
 cloudinary.v2.config({

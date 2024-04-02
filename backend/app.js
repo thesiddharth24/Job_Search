@@ -11,6 +11,7 @@ import { errorMiddleware } from './middlewares/error.js'
 
 const app = new express();
 dotenv.config({path: './config/config.env'});
+console.log('app');
 
 app.use(cors({
     origin: '*',
