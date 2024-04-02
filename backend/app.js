@@ -13,7 +13,8 @@ const app = new express();
 dotenv.config({path: './config/config.env'});
 
 app.use(cors({
-    origin: [process.env.FRONTEND_URL , process.env.FRONTEND_URL1 , process.env.FRONTEND_URL2 , process.env.FRONTEND_URL3 , process.env.FRONTEND_URL4],
+    // origin: [process.env.FRONTEND_URL , process.env.FRONTEND_URL1 , process.env.FRONTEND_URL2 , process.env.FRONTEND_URL3 , process.env.FRONTEND_URL4],
+    origin: "https://job-search-fa601pfyh-thesiddharth24s-projects.vercel.app",
     methods: ['GET' , 'POST' , 'DELETE' , 'PUT'],
     credentials: true
 }));
